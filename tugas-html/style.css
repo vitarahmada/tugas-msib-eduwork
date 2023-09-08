@@ -1,0 +1,81 @@
+body{
+    font: 16px/28px arial, sans-serif;
+}
+
+.container{
+    width: 100%;
+    margin: auto;
+}
+
+nav{
+    background-color: dimgray;
+    padding: 8px;
+    text-align: center;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin-right: 60px;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.image{
+    height: 400px;
+    background-image: url(img/img.jpg);
+    background-size: cover;
+    background-position: 0;
+}
+
+.main{
+    width: 800px;
+    padding: 50px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.main p{
+    margin-bottom: 20px;
+}
+
+.sidebar{
+    width: 400px;
+    float: right;
+    margin-top: 50px;
+}
+
+.sidebar img{
+    width: 300px;
+    margin-top: 20px;
+}
+
+.footer .copyright{
+    background-color: dimgray;
+    padding: 5px;
+}
+
+.footer p{
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* clearfix */
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    zoom: 1;
+} 
