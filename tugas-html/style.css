@@ -17,6 +17,8 @@ nav a{
     color: white;
     text-decoration: none;
     margin-right: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 
 nav a:hover{
