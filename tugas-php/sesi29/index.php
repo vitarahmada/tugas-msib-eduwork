@@ -18,6 +18,7 @@
     <br>
     <h2 style="text-align: center;">DATA ANGGOTA PERPUSTAKAAN</h2>
     <br>
+    <a href="tambah_anggota.php">Tambah Data</a><br><br>
     <table class="table table-dark table-hover">
         <tr>
             <th>Nama</th>
