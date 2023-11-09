@@ -9,46 +9,51 @@
 </head>
 
 <body>
-    <center>
-        <a href="index.php">Anggota</a>
-        <a href="peminjaman.php">Peminjaman</a>
-        <a href="buku.php">Buku</a>
-    </center>
-
-    <br>
-    <h2 style="text-align: center;">DATA ANGGOTA PERPUSTAKAAN</h2>
-    <br>
-    <a href="tambah_anggota.php">Tambah Data</a><br><br>
-    <table class="table table-dark table-hover">
-        <tr>
-            <th>Nama</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Gender</th>
-            <th>Telp</th>
-            <th>Alamat</th>
-            <th>Email</th>
-            <th>Role</th>
-        </tr>
-        <?php
+    <div class="container">
+        <div class="navbar mt-2 d-flex justify-content-evenly navbar-light bg-dark mb-4">
+            <a class="nav-link" href="index.php">ANGGOTA</a>
+            <a class="nav-link" href="peminjaman.php">PEMINJAMAN</a>
+            <a class="nav-link" href="buku.php">BUKU</a>
+        </div>
+        <h2 style="text-align: center;">DATA ANGGOTA PERPUSTAKAAN</h2>
+        <div class="button d-flex justify-content-evenly mb-4 mt-3">
+            <a href="tambah_anggota.php">Tambah Data</a>
+            <a href="#">Edit Data</a>
+        </div>
+        <table class="table table-dark table-hover">
+            <tr>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Telp</th>
+                <th>Alamat</th>
+                <th>Email</th>
+                <th>Tanggal Entry</th>
+                <th>Role</th>
+            </tr>
+            <?php
             include "connection.php";
-            
+
             $anggota = mysqli_query($conn, "SELECT * FROM anggota ORDER BY nama ASC");
 
             foreach ($anggota as $key => $anggotaa) {
-        ?>
-            <tr>
-                <td><?php echo $anggotaa["nama"]; ?></td>
-                <td><?php echo $anggotaa["username"]; ?></td>
-                <td><?php echo $anggotaa["password"]; ?></td>
-                <td><?php echo $anggotaa["sex"]; ?></td>
-                <td><?php echo $anggotaa["telp"]; ?></td>
-                <td><?php echo $anggotaa["alamat"]; ?></td>
-                <td><?php echo $anggotaa["email"]; ?></td>
-                <td><?php echo $anggotaa["role"]; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
+            ?>
+                <tr>
+                    <td><?php echo $anggotaa["nama"]; ?></td>
+                    <td><?php echo $anggotaa["username"]; ?></td>
+                    <td><?php echo $anggotaa["password"]; ?></td>
+                    <td><?php echo $anggotaa["sex"]; ?></td>
+                    <td><?php echo $anggotaa["telp"]; ?></td>
+                    <td><?php echo $anggotaa["alamat"]; ?></td>
+                    <td><?php echo $anggotaa["email"]; ?></td>
+                    <td><?php echo date("d/m/Y", strtotime($anggotaa["tgl_entry"])); ?></td>
+                    <td><?php echo $anggotaa["role"]; ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
+
 </body>
 
 </html>

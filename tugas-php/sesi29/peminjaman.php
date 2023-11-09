@@ -9,35 +9,38 @@
 </head>
 
 <body>
-    <center>
-        <a href="index.php">Anggota</a>
-        <a href="peminjaman.php">Peminjaman</a>
-        <a href="buku.php">Buku</a>
-    </center>
-
-    <br>
-    <h2 style="text-align: center;">DATA PEMINJAMAN</h2>
-    <br>
-    <table class="table table-dark table-hover">
-        <tr>
-            <th>ID Anggota</th>
-            <th>Tanggal Pinjam</th>
-            <th>Tanggal Kembali</th>
-        </tr>
-        <?php
+    <div class="container">
+        <div class="navbar mt-2 d-flex justify-content-evenly navbar-light bg-dark mb-4">
+            <a class="nav-link" href="index.php">ANGGOTA</a>
+            <a class="nav-link" href="peminjaman.php">PEMINJAMAN</a>
+            <a class="nav-link" href="buku.php">BUKU</a>
+        </div>
+        <h2 style="text-align: center;">DATA PEMINJAMAN</h2>
+        <div class="button d-flex justify-content-evenly mb-4 mt-3">
+            <a href="tambah_anggota.php">Tambah Data</a>
+            <a href="#">Edit Data</a>
+        </div>
+        <table class="table table-dark table-hover">
+            <tr>
+                <th>ID Anggota</th>
+                <th>Tanggal Pinjam</th>
+                <th>Tanggal Kembali</th>
+            </tr>
+            <?php
             include "connection.php";
-            
-            $pinjam = mysqli_query($conn, "SELECT * FROM peminjaman");
+
+            $pinjam = mysqli_query($conn, "SELECT * FROM peminjaman JOIN anggota ON peminjaman.id_anggota_fk = anggota.id_anggota");
 
             foreach ($pinjam as $key => $pinjamm) {
-        ?>
-            <tr>
-                <td><?php echo $pinjamm["id_anggota"]; ?></td>
-                <td><?php echo $pinjamm["tgl_pinjam"]; ?></td>
-                <td><?php echo $pinjamm["tgl_kembali"]; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
+            ?>
+                <tr>
+                    <td><?php echo $pinjamm["nama"]; ?></td>
+                    <td><?php echo $pinjamm["tgl_pinjam"]; ?></td>
+                    <td><?php echo $pinjamm["tgl_kembali"]; ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
 </body>
 
 </html>

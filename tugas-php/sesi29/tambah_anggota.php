@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container d-flex justify-content-center mt-3">
         <div class="row">
             <div class="col md-6">
-                <h3>Tambah Data Anggota</h3>
+                <h3 class="d-flex justify-content-center">Tambah Data Anggota</h3>
                 <form action="proses_tambah_anggota.php" method="post">
-                    <table>
+                    <table class="table">
                         <tr>
                             <td>Nama</td>
                             <td>

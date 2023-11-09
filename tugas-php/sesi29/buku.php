@@ -9,45 +9,48 @@
 </head>
 
 <body>
-    <center>
-        <a href="index.php">Anggota</a>
-        <a href="peminjaman.php">Peminjaman</a>
-        <a href="buku.php">Buku</a>
-    </center>
-
-    <br>
-    <h2 style="text-align: center;">DATA BUKU</h2>
-    <br>
-    <table class="table table-dark table-hover">
-        <tr>
-            <th>ISBN</th>
-            <th>Judul</th>
-            <th>Tahun</th>
-            <th>ID_Penerbit</th>
-            <th>ID_Pengarang</th>
-            <th>ID_Katalog</th>
-            <th>Jumlah Stok</th>
-            <th>Harga Pinjam</th>
-        </tr>
-        <?php
+    <div class="container">
+        <div class="navbar mt-2 d-flex justify-content-evenly navbar-light bg-dark mb-4">
+            <a class="nav-link" href="index.php">ANGGOTA</a>
+            <a class="nav-link" href="peminjaman.php">PEMINJAMAN</a>
+            <a class="nav-link" href="buku.php">BUKU</a>
+        </div>
+        <h2 style="text-align: center;">DATA BUKU</h2>
+        <div class="button d-flex justify-content-evenly mb-4 mt-3">
+            <a href="#">Tambah Data</a>
+            <a href="#">Edit Data</a>
+        </div>
+        <table class="table table-dark table-hover">
+            <tr>
+                <th>ISBN</th>
+                <th>Judul</th>
+                <th>Tahun</th>
+                <th>ID_Penerbit</th>
+                <th>ID_Pengarang</th>
+                <th>ID_Katalog</th>
+                <th>Jumlah Stok</th>
+                <th>Harga Pinjam</th>
+            </tr>
+            <?php
             include "connection.php";
-            
+
             $books = mysqli_query($conn, "SELECT * FROM buku");
 
             foreach ($books as $key => $book) {
-        ?>
-            <tr>
-                <td><?php echo $book["isbn"]; ?></td>
-                <td><?php echo $book["judul"]; ?></td>
-                <td><?php echo $book["tahun"]; ?></td>
-                <td><?php echo $book["id_penerbit"]; ?></td>
-                <td><?php echo $book["id_pengarang"]; ?></td>
-                <td><?php echo $book["id_katalog"]; ?></td>
-                <td><?php echo $book["qty_stok"]; ?></td>
-                <td><?php echo $book["harga_pinjam"]; ?></td>
-            </tr>
-        <?php } ?>
-    </table>
+            ?>
+                <tr>
+                    <td><?php echo $book["isbn"]; ?></td>
+                    <td><?php echo $book["judul"]; ?></td>
+                    <td><?php echo $book["tahun"]; ?></td>
+                    <td><?php echo $book["id_penerbit"]; ?></td>
+                    <td><?php echo $book["id_pengarang"]; ?></td>
+                    <td><?php echo $book["id_katalog"]; ?></td>
+                    <td><?php echo $book["qty_stok"]; ?></td>
+                    <td><?php echo "Rp " . number_format($book["harga_pinjam"]); ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
 </body>
 
 </html>
