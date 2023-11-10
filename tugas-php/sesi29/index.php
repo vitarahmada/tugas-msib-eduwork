@@ -14,6 +14,7 @@
             <a class="nav-link" href="index.php">ANGGOTA</a>
             <a class="nav-link" href="peminjaman.php">PEMINJAMAN</a>
             <a class="nav-link" href="detailPeminjaman.php">DETAIL PEMINJAMAN</a>
+            <a class="nav-link" href="plugindtable_anggota.php">PLUGIN DATATABLE</a>
         </div>
         <h2 style="text-align: center;">DATA ANGGOTA PERPUSTAKAAN</h2>
         <div class="button d-flex justify-content-center mb-4 mt-3">
