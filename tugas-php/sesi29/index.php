@@ -13,12 +13,11 @@
         <div class="navbar mt-2 d-flex justify-content-evenly navbar-light bg-dark mb-4">
             <a class="nav-link" href="index.php">ANGGOTA</a>
             <a class="nav-link" href="peminjaman.php">PEMINJAMAN</a>
-            <a class="nav-link" href="buku.php">BUKU</a>
+            <a class="nav-link" href="detailPeminjaman.php">DETAIL PEMINJAMAN</a>
         </div>
         <h2 style="text-align: center;">DATA ANGGOTA PERPUSTAKAAN</h2>
-        <div class="button d-flex justify-content-evenly mb-4 mt-3">
+        <div class="button d-flex justify-content-center mb-4 mt-3">
             <a href="tambah_anggota.php">Tambah Data</a>
-            <a href="#">Edit Data</a>
         </div>
         <table class="table table-dark table-hover">
             <tr>
@@ -31,6 +30,7 @@
                 <th>Email</th>
                 <th>Tanggal Entry</th>
                 <th>Role</th>
+                <th>Aksi</th>
             </tr>
             <?php
             include "connection.php";
@@ -49,6 +49,10 @@
                     <td><?php echo $anggotaa["email"]; ?></td>
                     <td><?php echo date("d/m/Y", strtotime($anggotaa["tgl_entry"])); ?></td>
                     <td><?php echo $anggotaa["role"]; ?></td>
+                    <td>
+                        <a href="edit_anggota.php?id_anggota=<?php echo $anggotaa["id_anggota"] ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="delete_anggota.php?id_anggota=<?php echo $anggotaa["id_anggota"] ?>" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
                 </tr>
             <?php } ?>
         </table>

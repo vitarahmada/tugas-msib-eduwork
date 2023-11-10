@@ -13,18 +13,18 @@
         <div class="navbar mt-2 d-flex justify-content-evenly navbar-light bg-dark mb-4">
             <a class="nav-link" href="index.php">ANGGOTA</a>
             <a class="nav-link" href="peminjaman.php">PEMINJAMAN</a>
-            <a class="nav-link" href="buku.php">BUKU</a>
+            <a class="nav-link" href="detailPeminjaman.php">DETAIL PEMINJAMAN</a>
         </div>
         <h2 style="text-align: center;">DATA PEMINJAMAN</h2>
-        <div class="button d-flex justify-content-evenly mb-4 mt-3">
-            <a href="tambah_anggota.php">Tambah Data</a>
-            <a href="#">Edit Data</a>
+        <div class="button d-flex justify-content-center mb-4 mt-3">
+            <a href="tambah_peminjaman.php">Tambah Data</a>
         </div>
         <table class="table table-dark table-hover">
             <tr>
                 <th>ID Anggota</th>
                 <th>Tanggal Pinjam</th>
                 <th>Tanggal Kembali</th>
+                <th>Aksi</th>
             </tr>
             <?php
             include "connection.php";
@@ -37,6 +37,10 @@
                     <td><?php echo $pinjamm["nama"]; ?></td>
                     <td><?php echo $pinjamm["tgl_pinjam"]; ?></td>
                     <td><?php echo $pinjamm["tgl_kembali"]; ?></td>
+                    <td>
+                        <a href="edit_peminjaman.php" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
                 </tr>
             <?php } ?>
         </table>
